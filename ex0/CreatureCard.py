@@ -1,11 +1,10 @@
 from ex0.Card import Card
-from typing import Dict
 
 
 class CreatureCard(Card):
     def __init__(
-            self, name: str, cost: int, rarity: str, attack: int, health: int
-            ):
+        self, name: str, cost: int, rarity: str, attack: int, health: int
+    ):
         super().__init__(name, cost, rarity)
 
         if attack <= 0 or health <= 0:
@@ -14,7 +13,7 @@ class CreatureCard(Card):
         self.attack = attack
         self.health = health
 
-    def play(self, game_state: dict) -> Dict:
+    def play(self, game_state: dict) -> dict:
         return {
             "card_played": self.name,
             "mana_used": self.cost,
@@ -29,7 +28,7 @@ class CreatureCard(Card):
             "combat_resolved": True
         }
 
-    def get_card_info(self):
+    def get_card_info(self) -> dict:
         info = super().get_card_info()
         info["type"] = "Creature"
         info["attack"] = self.attack
