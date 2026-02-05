@@ -34,3 +34,6 @@ class CreatureCard(Card):
         info["attack"] = self.attack
         info["health"] = self.health
         return info
+
+    def get_type(self) -> str:
+        return "Creature"

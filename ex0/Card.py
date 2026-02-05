@@ -23,3 +23,6 @@ class Card(ABC):
 
     def is_playable(self, available_mana: int):
         return available_mana >= self.cost
+
+    def get_type(self) -> str:
+        return "Card"

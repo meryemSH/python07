@@ -6,7 +6,7 @@ class ArtifactCard(Card):
             self, name: str, cost: int, rarity: str,
             durability: int, effect: str
             ):
-        super.__init__(name, cost, rarity)
+        super().__init__(name, cost, rarity)
         self.durability = durability
         self.effect = effect
 
@@ -25,3 +25,6 @@ class ArtifactCard(Card):
             "remaining_durability": self.durability,
             "effect": self.effect
         }
+
+    def get_type(self) -> str:
+        return "Artifact"

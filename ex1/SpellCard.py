@@ -11,7 +11,7 @@ class EffectType(Enum):
 
 class SpellCard(Card):
     def __init__(self, name: str, cost: int, rarity: str, effect_type: str):
-        super.__init__(name, cost, rarity)
+        super().__init__(name, cost, rarity)
         self.effect_type = EffectType(effect_type)
 
     def play(self, game_state: dict) -> dict:
@@ -36,3 +36,6 @@ class SpellCard(Card):
             return "Reduce enemy attack by 2"
 
         return "Unknown effect"
+
+    def get_type(self) -> str:
+        return "Spell"
