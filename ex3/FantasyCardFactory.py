@@ -7,13 +7,13 @@ class FantasyCardFactory(CardFactory):
 
     def create_creature(self, name_or_power: str | int | None = None) -> Card:
         creatures = [
-            {"name": "Fire Dragon"},
-            {"name": "Goblin Warrior"}
+            {"name": "Fire Dragon", "cost": 5, "attack": 5},
+            {"name": "Goblin Warrior", "cost": 2, "attack": 3}
         ]
         return random.choice(creatures)
 
     def create_spell(self, name_or_power: str | int | None = None) -> Card:
-        return {"name": "Lightning Bolt"}
+        return {"name": "Lightning Bolt", "cost": 3}
 
     def create_artifact(self, name_or_power: str | int | None = None) -> Card:
         return {"name": "Mana Ring"}

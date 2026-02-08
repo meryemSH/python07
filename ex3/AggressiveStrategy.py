@@ -12,13 +12,15 @@ class AggressiveStrategy(GameStrategy):
     def execute_turn(self, hand: list, battlefield: list) -> dict:
         cards_played = []
         mana_used = 0
-        damage = 0
+        damage_dealt = 0
 
         for card in hand:
             if len(cards_played) < 2:
                 cards_played.append(card["name"])
                 mana_used += card["cost"]
-                damage += card.get("power", 0)
+
+            if "attack" in card:
+                damage_dealt += card["attack"]
 
         return {
             "Strategy": self.get_strategy_name(),
@@ -26,6 +28,6 @@ class AggressiveStrategy(GameStrategy):
                 "cards_played": cards_played,
                 "mana_used": mana_used,
                 "targets_attacked": self.prioritize_targets([]),
-                "damage_dealt": damage
+                "damage_dealt": damage_dealt
             }
         }

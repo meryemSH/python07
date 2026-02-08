@@ -26,6 +26,15 @@ class GameEngine():
         self.cards_created += len(hand)
 
         result = self.strategy.execute_turn(hand, [])
+        self.turns += 1
+        self.total_damage += result["Actions"]["damage_dealt"]
+
+        return result
+
     def get_engine_status(self) -> dict:
-        pass
-fuck you
+        return {
+            "turns_simulated": self.turns,
+            "strategy_used": self.strategy.get_strategy_name(),
+            "total_damage": self.total_damage,
+            "cards_created": self.cards_created
+        }
