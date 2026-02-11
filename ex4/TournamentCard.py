@@ -50,4 +50,16 @@ class TournamentCard(Card, Combatable, Rankable):
         self.rating -= 16
 
     def get_rank_info(self) -> dict:
-        pass
+        return {
+            "Rating": self.rating,
+            "Record": f"{self.wins}-{self.losses}"
+        }
+
+    def get_tournament_stats(self) -> dict:
+        return {
+            "id": self.card_id,
+            "name": self.name,
+            "rating": self.rating,
+            "wins": self.wins,
+            "losses": self.losses
+        }
