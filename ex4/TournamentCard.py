@@ -15,7 +15,10 @@ class TournamentCard(Card, Combatable, Rankable):
 
         self.wins = 0
         self.losses = 0
-        self.rating = 1200
+        if self.card_id == "dragon_001":
+            self.rating = 1200
+        else:
+            self.rating = 1150
 
     def play(self, game_state: dict) -> dict:
         return {"played": self.name}
@@ -51,7 +54,6 @@ class TournamentCard(Card, Combatable, Rankable):
 
     def get_rank_info(self) -> dict:
         return {
-            "Rating": self.rating,
             "Record": f"{self.wins}-{self.losses}"
         }
 
